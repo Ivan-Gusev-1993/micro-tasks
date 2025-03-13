@@ -6,7 +6,6 @@ import {PageThree} from "./components/pages/PageThree";
 import {Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 
-
 function App() {
     return (
         <div>
@@ -16,11 +15,13 @@ function App() {
                     Здесь будет навигация
                 </div>
                 <div className={styles.content}>
+
+
                     <Routes>
                         <Route path="/page1" element={<PageOne/>}  />
                         <Route path="/page2" element={<PageTwo/>}  />
                         <Route path="/page3" element={<PageThree/>}  />
-                        <Route path="/фсе" element={<Error404/>}  />
+                        <Route path="*" element={<Error404/>}  />
                     </Routes>
 
                 </div>
