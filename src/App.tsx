@@ -5,11 +5,13 @@ import {Fila} from "./components/pages/Fila";
 import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from './components/pages/_styles'
+import {Model} from "./components/pages/Model";
 
 const PATH = {
-    PAGE1: "/page1",
-    PAGE2: "/page2",
-    PAGE3: "/page3",
+    PAGE1: "/Adidas",
+    PAGE2: "/Puma",
+    PAGE3: "/Fila",
+    // PAGE4: "/Adidas/Model",
     ERROR: "/page/error",
 } as const;
 
@@ -31,6 +33,7 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Fila/>}/>
+                        <Route path={"/Adidas/Model"} element={<Model/>}/>
 
                         <Route path={'/*'} element={<Error404/>}/>
 
