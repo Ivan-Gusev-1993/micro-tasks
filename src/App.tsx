@@ -11,7 +11,7 @@ const PATH = {
     PAGE1: "/Adidas",
     PAGE2: "/Puma",
     PAGE3: "/Fila",
-    // PAGE4: "/Adidas/Model",
+    PAGE4: "/adidas/:id",
     ERROR: "/page/error",
 } as const;
 
@@ -33,7 +33,7 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Fila/>}/>
-                        <Route path={'/adidas/id'} element={<Model/>}/>
+                        <Route path={PATH.PAGE4} element={<Model/>}/>
 
                         <Route path={'/*'} element={<Error404/>}/>
 
@@ -43,7 +43,7 @@ function App() {
 
                 </S.Content>
             </S.Body>
-            <S.Footer>abibas 2023</S.Footer>
+            <S.Footer>shoes 2025</S.Footer>
         </div>
     );
 }
