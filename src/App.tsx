@@ -28,7 +28,7 @@ function App() {
                 </S.Nav>
                 <S.Content>
                     <Routes>
-                        <Route path="/" element={<Navigate to={"/page1"}/>}/>
+                        <Route path="/" element={<Navigate to={"/Adidas"}/>}/>
 
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
@@ -47,4 +47,5 @@ function App() {
         </div>
     );
 }
+
 export default App;

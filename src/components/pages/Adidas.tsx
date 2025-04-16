@@ -1,12 +1,11 @@
 import React from 'react';
-import adidasModel1 from './../../assets/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
-import adidasModel2 from './../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
-import adidasModel3
-    from './../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
+import adidasModel1 from '../../assets/AdiFOM.webp'
+import adidasModel2 from '../../assets/Superstar.webp'
+import adidasModel3 from '../../assets/PostMove.webp'
 import {Link} from "react-router-dom";
 
 export type AdidasItem = {
-    id:number;
+    id: number;
     model: string;
     collection: string;
     price: string;
@@ -14,23 +13,23 @@ export type AdidasItem = {
 }
 export const adidasArr: AdidasItem[] = [
     {
-        id:1,
-        model: 'ADIDAS ADIFOM TRXN',
-        collection: 'new collection1',
+        id: 1,
+        model: 'ADIDAS ADIFOAM TRXN',
+        collection: 'new collection 24',
         price: '200$',
         picture: adidasModel1,
     },
     {
-        id:2,
-        model: 'ADIDAS ADIFOM SUPER',
-        collection: 'new collection22',
+        id: 2,
+        model: 'ADIDAS ADIFOAM SUPER',
+        collection: 'new collection 22',
         price: '300$',
         picture: adidasModel2
     },
     {
-        id:3,
-        model: 'ADIDAS SUPER SUPERSKI',
-        collection: 'new collection333',
+        id: 3,
+        model: 'ADIDAS SUPER SKY',
+        collection: 'new collection 23',
         price: '400$',
         picture: adidasModel3
     }
@@ -40,11 +39,11 @@ export const Adidas = () => {
         <div>
             <h2> ADIDAS</h2>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-                {adidasArr.map((adidas, index) => (
-                    <Link key={adidas.id} to={`/adidas/${adidas.id}`}>
+                {adidasArr.map((el) => (
+                    <Link key={el.id} to={`/adidas/${el.id}`}>
                         <img
-                            src={adidas.picture}
-                            alt={adidas.model}
+                            src={el.picture}
+                            alt={el.model}
                             style={{width: '200px', height: 'auto', marginRight: '10px'}}
                         />
                     </Link>
