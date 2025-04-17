@@ -1,7 +1,7 @@
 import {adidasArr} from "./Adidas";
 import {useParams} from "react-router-dom";
 
-export const Model = () => {
+export const AdidasModel = () => {
     const {id} = useParams();
 
     const currentModel = adidasArr.find(el => el.id === Number(id))
