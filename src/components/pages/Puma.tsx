@@ -14,7 +14,7 @@ export type PumaItem = {
 export const pumaArr: PumaItem[] = [
     {
         id: 1,
-        model: 'Puma kedy',
+        model: 'Puma kaddy',
         collection: 'new collection 24',
         price: '190$',
         picture: pumaModel1,
@@ -52,9 +52,7 @@ export const Puma = () => {
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard
-                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-                a type specimen book.
+                industry's standard.
             </p>
         </div>
     );
