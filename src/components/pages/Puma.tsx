@@ -34,6 +34,7 @@ export const pumaArr: PumaItem[] = [
         picture: pumaModel3
     }
 ]
+console.log("pumaArr")
 export const Puma = () => {
     return (
         <div>
