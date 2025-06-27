@@ -1,48 +1,40 @@
-import { useParams } from "react-router-dom";
-import { adidasArr, AdidasItem } from "./Adidas";
-import { pumaArr, PumaItem } from "./Puma";
+import {adidasArr, AdidasItem} from "./Adidas";
+import {useParams} from "react-router-dom";
+import {pumaArr, PumaItem} from "./Puma";
 
-// Define the interface for route parameters, compatible with useParams
-interface ModelParams extends Record<string, string | undefined> {
-    model: string;
-    id: string;
+type CrossModels = {
+  [key: string]: (AdidasItem[] | PumaItem[]);
 }
 
-// Define the CrossModels type
-type CrossModels = {
-    [key: string]: (AdidasItem[] | PumaItem[]);
-};
-
 const crossModels: CrossModels = {
-    adidas: adidasArr,
-    puma: pumaArr,
-};
+  adidas: adidasArr,
+  puma: pumaArr
+}
 
 export const Model = () => {
-    // Use the ModelParams interface with useParams
-    const { model, id } = useParams<ModelParams>();
+  // const params=useParams()
+  const {model, id} = useParams();
+  console.log(model)
+  //const currentModel=adidasArr.find(el=>el.id===Number(id))
+  const currentModel = model
+    ? crossModels[model].find((el) => el.id === Number(id))
+    : null;
 
-    // Find the current model, ensuring type safety
-    const currentModel = model && id && crossModels[model]
-        ? crossModels[model].find((el) => el.id === Number(id))
-        : null;
-
-    return (
-        <div style={{ textAlign: "center" }}>
-            {currentModel ? (
-                <>
-                    <h2>{currentModel.model}</h2>
-                    <h4>{currentModel.collection}</h4>
-                    <h3>{currentModel.price}</h3>
-                    <img
-                        src={currentModel.picture}
-                        alt={currentModel.model}
-                        style={{ width: "600px", height: "auto", marginRight: "10px" }}
-                    />
-                </>
-            ) : (
-                <h2>Model is missing</h2>
-            )}
-        </div>
-    );
+  return (
+    <div style={{textAlign: 'center'}}>
+      {currentModel
+        ? <>
+          <h2>{currentModel?.model}</h2>
+          <h4>{currentModel?.collection}</h4>
+          <h3>{currentModel?.price}</h3>
+          <img
+            src={currentModel?.picture}
+            alt={currentModel?.model}
+            style={{width: '600px', height: 'auto', marginRight: '10px'}}
+          />
+        </>
+        : <h2>Модель отсутствует</h2>
+      }
+    </div>
+  );
 };
