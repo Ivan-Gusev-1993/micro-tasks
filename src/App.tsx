@@ -6,11 +6,13 @@ import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import {S} from './components/pages/_styles';
 import {Model} from "./components/pages/Model";
+import {Prices} from "./components/pages/Prices.tsx";
 
 const PATH = {
   PAGE1: '/adidas',
   PAGE2: '/puma',
   PAGE3: '/abibas',
+  PAGE4: '/prices',
 } as const
 
 export const App = () => {
@@ -19,9 +21,10 @@ export const App = () => {
       <div className={styles.header}><h1>HEADER</h1></div>
       <div className={styles.body}>
         <div className={styles.nav}>
-          <S.NavWrapper><NavLink to={PATH.PAGE1}>Page1</NavLink></S.NavWrapper>
-          <S.NavWrapper><NavLink to={PATH.PAGE2}>Page2</NavLink></S.NavWrapper>
-          <S.NavWrapper><NavLink to={PATH.PAGE3}>Page3</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE1}>Adidas</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE2}>Puma</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE3}>Noname</NavLink></S.NavWrapper>
+          <S.NavWrapper><NavLink to={PATH.PAGE4}>Prices</NavLink></S.NavWrapper>
         </div>
         <div className={styles.content}>
           <Routes>
@@ -30,6 +33,7 @@ export const App = () => {
             <Route path={PATH.PAGE1} element={<Adidas/>}/>
             <Route path={PATH.PAGE2} element={<Puma/>}/>
             <Route path={PATH.PAGE3} element={<Abibas/>}/>
+            <Route path={PATH.PAGE4} element={<Prices/>}/>
 
             {/*<Route path={'/adidas/:id'} element={<Model/>}/>*/}
             <Route path={'/:model/:id'} element={<Model/>}/>
