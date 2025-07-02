@@ -14,7 +14,6 @@ const crossModels: CrossModels = {
 export const Model = () => {
   // const params=useParams()
   const {model, id} = useParams();
-  console.log('model', model);
   //const currentModel=adidasArr.find(el=>el.id===Number(id))
   const currentModel = model
     ? crossModels[model].find((el) => el.id === Number(id))
