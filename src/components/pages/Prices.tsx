@@ -1,11 +1,9 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from './Prices.module.css';
-import {useSearchParams} from "react-router-dom";
-
 
 type Props = {};
 export const Prices = (props: Props) => {
-    const [searchParams, setSearchParams] = useSearchParams();
     const sneakers = [
         {
             manufacturer: "Adidas",
@@ -38,51 +36,55 @@ export const Prices = (props: Props) => {
             onSale: true
         }
     ];
-    console.log(searchParams.get('onSale'));
+
+    let [searchParams, setSearchParams] = useSearchParams();
     const [filteredSneakers, setFilteredSneakers] = useState(sneakers);
 
+    console.log(searchParams.get('onSale'))
 
-    function handleOnSale() {
-        setSearchParams({onSale: 'true'})
-    }
-
-    function handleReset() {
-        setSearchParams({})
-    }
 
     useEffect(() => {
         if (searchParams.get('onSale') === 'true') {
-            setFilteredSneakers(filteredSneakers.filter(el => el.onSale));
+            setFilteredSneakers(sneakers.filter(sneaker => sneaker.onSale));
         } else {
-            setFilteredSneakers(sneakers)
+            setFilteredSneakers(sneakers);
         }
     }, [searchParams]);
 
-    return (
-        <div>
-            <button onClick={handleOnSale} className={styles.buttonStyle}>On sale</button>
-            <button onClick={handleReset} className={styles.buttonStyle}>Reset filter</button>
+    function handleOnSale() {
+        setSearchParams({ onSale: 'true' });
+    }
 
-            <table className={styles.tableStyle}>
-                <thead>
-                <tr>
-                    <th className={styles.thStyle}>Manufacturer</th>
-                    <th className={styles.thStyle}>Name</th>
-                    <th className={styles.thStyle}>Price</th>
-                    <th className={styles.thStyle}>On Sale</th>
+    function handleReset() {
+        setSearchParams({});
+    }
+
+
+    return (
+      <div>
+          <button onClick={handleOnSale} className={styles.buttonStyle}>On sale</button>
+          <button onClick={handleReset} className={styles.buttonStyle}>Reset filter</button>
+
+          <table className={styles.tableStyle}>
+              <thead>
+              <tr>
+                  <th className={styles.thStyle}>Manufacturer</th>
+                  <th className={styles.thStyle}>Name</th>
+                  <th className={styles.thStyle}>Price</th>
+                  <th className={styles.thStyle}>On Sale</th>
+              </tr>
+              </thead>
+              <tbody>
+              {filteredSneakers.map((sneaker, index) => (
+                <tr key={index}>
+                    <td className={styles.tdStyle}>{sneaker.manufacturer}</td>
+                    <td className={styles.tdStyle}>{sneaker.name}</td>
+                    <td className={styles.tdStyle}>${sneaker.price}</td>
+                    <td className={styles.tdStyle}>{sneaker.onSale ? 'Yes' : 'No'}</td>
                 </tr>
-                </thead>
-                <tbody>
-                {filteredSneakers.map((sneaker, index) => (
-                    <tr key={index}>
-                        <td className={styles.tdStyle}>{sneaker.manufacturer}</td>
-                        <td className={styles.tdStyle}>{sneaker.name}</td>
-                        <td className={styles.tdStyle}>${sneaker.price}</td>
-                        <td className={styles.tdStyle}>{sneaker.onSale ? 'Yes' : 'No'}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-        </div>
+              ))}
+              </tbody>
+          </table>
+      </div>
     );
 };
