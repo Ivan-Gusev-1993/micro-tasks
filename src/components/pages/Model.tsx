@@ -1,14 +1,16 @@
 import {adidasArr, AdidasItem} from "./Adidas";
 import {useParams} from "react-router-dom";
 import {pumaArr, PumaItem} from "./Puma";
+import {filaArr, type FilaItem} from "./Fila.tsx";
 
 type CrossModels = {
-  [key: string]: (AdidasItem[] | PumaItem[]);
+  [key: string]: (AdidasItem[] | PumaItem[] | FilaItem[]);
 }
 
 const crossModels: CrossModels = {
   adidas: adidasArr,
-  puma: pumaArr
+  puma: pumaArr,
+  fila: filaArr,
 }
 
 export const Model = () => {

@@ -5,8 +5,9 @@ import {S} from './components/pages/_styles';
 const PATH = {
     ADIDAS: '/adidas',
     PUMA: '/puma',
-    NONAME: '/abibas',
+    FILA: '/fila',
     PRICES: '/prices',
+    PROTECTEDPAGE: '/protectedPage',
 } as const
 
 export const App = () => {
@@ -17,8 +18,9 @@ export const App = () => {
                 <div className={styles.nav}>
                     <S.NavWrapper><NavLink to={PATH.ADIDAS}>ADIDAS</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PUMA}>PUMA</NavLink></S.NavWrapper>
-                    <S.NavWrapper><NavLink to={PATH.NONAME}>NONAME</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.FILA}>FILA</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PRICES}>PRICES</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>ProtectedPage</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Outlet/>
@@ -27,7 +29,7 @@ export const App = () => {
 
                     {/*  <Route path={PATH.PAGE1} element={<Adidas/>}/>*/}
                     {/*  <Route path={PATH.PAGE2} element={<Puma/>}/>*/}
-                    {/*  <Route path={PATH.PAGE3} element={<Abibas/>}/>*/}
+                    {/*  <Route path={PATH.PAGE3} element={<Fila/>}/>*/}
                     {/*  <Route path={PATH.PRICES} element={<Prices/>}/>*/}
                     {/*  /!*<Route path={'/adidas/:id'} element={<Model/>}/>*!/*/}
                     {/*  <Route path={'/:model/:id'} element={<Model/>}/>*/}
