@@ -7,6 +7,7 @@ import {Fila} from "../components/pages/Fila.tsx";
 import {Prices} from "../components/pages/Prices.tsx";
 import {Model} from "../components/pages/Model.tsx";
 import {ProtectedPage} from "../components/pages/ProtectedPage.tsx";
+import {ProtectedRoute} from "./ProtectedRoute.tsx";
 
 const PATH = {
     ADIDAS: '/adidas',
@@ -14,7 +15,8 @@ const PATH = {
     FILA: '/fila',
     PRICES: '/prices',
     MODEL: '/:model/:id',
-    PROTECTEDPAGE: '/protectedPage',
+    PROTECTEDPAGE: '/protected',
+    ERROR: '/error',
 } as const
 
 export const router = createBrowserRouter([
@@ -22,7 +24,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <App/>,
         errorElement: <Error404/>,
-        children: [
+        children:  [
             {
                 path: PATH.ADIDAS,
                 element: <Adidas/>,
@@ -40,7 +42,14 @@ export const router = createBrowserRouter([
                 element: <Model/>
             }, {
                 path: PATH.PROTECTEDPAGE,
-                element: <ProtectedPage/>
+                element: (
+                    <ProtectedRoute>
+                        <ProtectedPage/>
+                    </ProtectedRoute>
+                )
+            }, {
+                path: PATH.ERROR,
+                element: <Error404/>
             }
 
         ]

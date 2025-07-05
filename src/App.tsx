@@ -7,7 +7,7 @@ const PATH = {
     PUMA: '/puma',
     FILA: '/fila',
     PRICES: '/prices',
-    PROTECTEDPAGE: '/protectedPage',
+    PROTECTEDPAGE: '/protected',
 } as const
 
 export const App = () => {
