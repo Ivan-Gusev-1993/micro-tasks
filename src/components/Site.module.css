@@ -1,3 +1,42 @@
+.linkLikeButton {
+    margin-top: 10px;
+    padding: 10px 30px 10px 30px;
+    background-color: #94c0ec;
+    color: brown;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkLikeButton:hover {
+    color: coral;
+    background-color: #03beee;
+}
+
+.buttonLikeLink {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 18px 30px 18px 30px;
+    background-color: #82e989;
+    color: brown;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.buttonLikeLink:hover {
+    color: coral;
+    background-color: #6ac538;
+}
+
+.horizontalNavigation {
+    display: flex;
+    justify-content: center;
+}
+
+
 .header {
     background-color: #000000;
     width: 100%;

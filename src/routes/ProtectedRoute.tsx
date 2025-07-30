@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import {Navigate} from "react-router-dom";
+import {Login} from "../components/pages/Login.tsx";
 
 type Props = {
     children: ReactNode
@@ -7,5 +7,5 @@ type Props = {
 
 export const ProtectedRoute = ({children} : Props) => {
         const logged = false
-    return logged ? children : <Navigate to={'/error'}/>
+    return logged ? children : <Login/> //<Navigate to={'/error'}/>
 };

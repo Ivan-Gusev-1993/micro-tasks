@@ -1,5 +1,5 @@
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from 'react-router-dom';
+import {NavLink, Outlet, useNavigate} from 'react-router-dom';
 import {S} from './components/pages/_styles';
 
 const PATH = {
@@ -8,9 +8,11 @@ const PATH = {
     FILA: '/fila',
     PRICES: '/prices',
     PROTECTEDPAGE: '/protected',
+    LOGIN: '/login',
 } as const
 
 export const App = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <div className={styles.header}><h1>HEADER</h1></div>
@@ -21,8 +23,14 @@ export const App = () => {
                     <S.NavWrapper><NavLink to={PATH.FILA}>FILA</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PRICES}>PRICES</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>ProtectedPage</NavLink></S.NavWrapper>
+                    {/*<S.NavWrapper><NavLink to={PATH.LOGIN}>login</NavLink></S.NavWrapper>*/}
                 </div>
                 <div className={styles.content}>
+
+                    <div className={styles.horizontalNavigation}>
+                        <NavLink className={styles.linkLikeButton} to={PATH.ADIDAS}>на главную</NavLink>
+                        <button className={styles.buttonLikeLink} onClick={()=> navigate(-1)}>назад</button>
+                    </div>
                     <Outlet/>
                     {/*<Routes>*/}
                     {/*  <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>*/}
